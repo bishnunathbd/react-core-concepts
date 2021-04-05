@@ -2,10 +2,19 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const products = [
+    {name: 'Photoshop', price: '$60.99'},
+    {name: 'Illustrator', price: '$70.99'},
+    {name: 'PDF Reader', price: '$6.99'}
+  ];
+
   return (
     <div className="App">
       <header className="App-header">
         <p>I am a React Person</p>
+        <Product product={products[0]}></Product>
+        <Product product={products[2]}></Product>
+        <Product product={products[1]}></Product>
         <Person name='Mukul' job='Employee'></Person>
         <Person name='Shaquib' job='Programmer'></Person>
         <Person name='Sagar' job='Designer'></Person>
@@ -13,6 +22,25 @@ function App() {
       </header>
     </div>
   );
+}
+
+function Product(props) {
+  const {name, price} = props.product;
+
+  const productStyle = {
+    width: '200px',
+    height: '200px',
+    border: '2px solid lightgray',
+    borderRadius: '10px',
+    marginTop: '10px'
+  };
+  return (
+    <div style={productStyle}>
+      <h3>{name}</h3>
+      <h5>{price}</h5>
+      <button>Buy now</button>
+    </div>
+  )
 }
 
 function Person(props) {
