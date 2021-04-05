@@ -5,16 +5,18 @@ function App() {
   const products = [
     {name: 'Photoshop', price: '$60.99'},
     {name: 'Illustrator', price: '$70.99'},
-    {name: 'PDF Reader', price: '$6.99'}
+    {name: 'PDF Reader', price: '$6.99'},
+    {name: 'Premiere EL', price: '$244.99'}
   ];
 
   return (
     <div className="App">
       <header className="App-header">
         <p>I am a React Person</p>
-        <Product product={products[0]}></Product>
-        <Product product={products[2]}></Product>
-        <Product product={products[1]}></Product>
+        {
+          products.map(pd => <Product product={pd}></Product>)
+        }
+
         <Person name='Mukul' job='Employee'></Person>
         <Person name='Shaquib' job='Programmer'></Person>
         <Person name='Sagar' job='Designer'></Person>
