@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
   const products = [
@@ -13,6 +14,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>I am a React Person</p>
+        <Counter></Counter>
         {
           products.map(pd => <Product product={pd}></Product>)
         }
@@ -24,6 +26,24 @@ function App() {
       </header>
     </div>
   );
+}
+
+function Counter() {
+  const [count, setCount] = useState(10);
+
+  const handleIncrease = () => {
+    // const newCount = count + 1;
+    // setCount(newCount);
+    setCount(count + 1);
+  };
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={handleIncrease}>Increase</button>
+      <button onClick={() => setCount(count - 1)}>Decrease</button>
+    </div>
+  )
 }
 
 function Product(props) {
